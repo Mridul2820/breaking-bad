@@ -31,28 +31,30 @@ const Pagination = ({ currentPage, setCurrentPage, cardsPerPage, numOfPages, pag
         <Container>
             <ul>
                 {currentPage > 1 && 
-                    <li onClick={handlePrevbtn}>
+                    <Arrow onClick={handlePrevbtn}>
                         <AiOutlineLeft />
-                    </li>
+                    </Arrow>
                 }
                 {pageNumbers.map(number => (
-                    <li
+                    <Number
                         key={number}
                         onClick={() => pageChange(number)}
                         className={currentPage === number ? "active" : null}
                     >
                         {number}
-                    </li>
+                    </Number>
                 ))}
                 {currentPage < totalPages && 
-                    <li onClick={handleNextbtn}>
+                    <Arrow onClick={handleNextbtn}>
                         <AiOutlineRight />
-                    </li>
+                    </Arrow>
                 }
             </ul>
         </Container>
     )
 }
+
+
 
 
 const Container  = styled.div`
@@ -64,25 +66,30 @@ const Container  = styled.div`
     ul {
         display: flex;
         list-style: none;
-
-        li {
-            padding: 5px;
-            margin: 5px;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 3px 3px 20px rgba(0, 0, 0, .3);
-
-            &.active {
-                background: #ffffff;
-            }
-        }
     }
+`
+
+const Number = styled.li`
+    padding: 5px;
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .3);
+
+    &.active {
+        background: #ffffff;
+    }
+`
+
+const Arrow = styled(Number)`
+    background: #487f5a;
+    color: #fff;
 `
 
 export default Pagination

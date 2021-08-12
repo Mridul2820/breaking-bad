@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ItemCard from '../components/ItemCard'
 import Pagination from '../components/Pagination'
+import { FaSearch } from 'react-icons/fa'
 
 const Characters = () => {
     const [items, setItems] = useState([])
@@ -10,6 +11,8 @@ const Characters = () => {
     const [ currentPage, setCurrentPage ] = useState(1)
 	const [ cardsPerPage ] = useState(10)
     const [ numOfPages, setNumOfPages ] = useState()
+
+    const [text, setText] = useState('');
 
 	// Get current posts
 	const indexOfLastCard = currentPage * cardsPerPage;
@@ -22,7 +25,13 @@ const Characters = () => {
         const fetchItems = async () => {
             const totalResult = await axios(`https://www.breakingbadapi.com/api/characters`)
             setNumOfPages(totalResult.data.length)
+        }
 
+        fetchItems()
+    }, [])
+
+    useEffect(() => {
+        const fetchItems = async () => {
             const result = await axios(`https://www.breakingbadapi.com/api/characters?limit=${cardsPerPage}&offset=${indexOfFirstCard}`)
 
             setItems(result.data)
@@ -31,8 +40,27 @@ const Characters = () => {
         fetchItems()
     }, [indexOfFirstCard, cardsPerPage])
 
+    const handleSearch = (e) => {
+        e.preventDefault()
+
+        
+    }
+
     return (
         <Container>
+            <Search onSubmit={handleSearch}>
+                <input 
+                    type="text" 
+                    className="form-control"
+                    placeholder="Search characters"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    autoFocus
+                />
+                <button type="submit">
+                    <FaSearch size="20px" />
+                </button>
+            </Search>
             <AllItem>
                 {items?.map(item => (
                     <ItemCard key={item.char_id} item={item} />
@@ -78,5 +106,32 @@ const AllItem = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `
+
+const Search = styled.form`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    input {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        border: 0;
+        border-radius: 5px;
+        margin: auto;
+        outline: none;
+    }
+
+    button {
+        background: #487f5a;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+`
+
 
 export default Characters

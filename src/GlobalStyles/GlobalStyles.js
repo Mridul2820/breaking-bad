@@ -9,8 +9,10 @@ const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth;
     }
     body {
-        background-color: #fafafa;
-        
+        background: url("/assets/bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
     
     a {

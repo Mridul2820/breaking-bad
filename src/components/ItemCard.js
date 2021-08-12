@@ -15,7 +15,7 @@ const ItemCard = ({ item }) => {
                     Name: {item.name}
                 </h3>
                 <DetailItem>
-                    Occupation : 
+                    <span>Occupation : </span>
                 </DetailItem>
                 <Occupations>
                     {item.occupation?.map((occu, id) => (
@@ -24,10 +24,12 @@ const ItemCard = ({ item }) => {
                 </Occupations>
                 
                 <DetailItem>
-                    Date of birth : {item.birthday}
+                    <span>Date of birth : </span>
+                    {item.birthday}
                 </DetailItem>
                 <DetailItem>
-                    Status : {item.status}
+                    <span>Status : </span>
+                    {item.status}
                 </DetailItem>
             </Detail>
         </CardWrap>
@@ -41,6 +43,7 @@ const CardWrap = styled.div`
     border-radius: 3px;
     overflow: hidden;
     max-width: 250px;
+    background: #fff;
 
     &:hover {
         box-shadow: 2px 4px 10px rgba(0, 0, 0, .5);
@@ -67,6 +70,10 @@ const Detail = styled.div`
 
 const DetailItem = styled.p`
     margin: 8px 0;
+
+    span {
+        font-weight: 600;
+    }
 `
 
 const Occupations = styled.ul`
