@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ItemCard from '../components/ItemCard'
+import Loading from '../components/Loading'
 import Pagination from '../components/Pagination'
 
 const Characters = () => {
     const [items, setItems] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     const [ currentPage, setCurrentPage ] = useState(1)
 	const [ cardsPerPage ] = useState(10)
@@ -35,10 +37,13 @@ const Characters = () => {
             const result = await axios(`https://www.breakingbadapi.com/api/characters?limit=${cardsPerPage}&offset=${indexOfFirstCard}&name=${text}`)
 
             setItems(result.data)
+            setIsLoading(false)
         }
 
         fetchItems()
     }, [indexOfFirstCard, cardsPerPage, text])
+
+    if(isLoading) return <Loading />
 
     return (
         <Container>

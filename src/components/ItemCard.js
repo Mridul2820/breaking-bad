@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ItemCard = ({ item }) => {
     // console.log(item);
     
     return (
-        <CardWrap>
+        <CardWrap to={`/character/${item.char_id}`}>
             <Image>
                 <img src={item.img} alt={item.name} />
             </Image>
@@ -36,7 +37,7 @@ const ItemCard = ({ item }) => {
     )
 }
 
-const CardWrap = styled.div`
+const CardWrap = styled(Link)`
     box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
     cursor: pointer;
     transition: all.5s;
