@@ -10,7 +10,7 @@ const App = () => {
             <GlobalStyles />
             <Router>
                 <Switch>
-                    <Route exact path="/" exact>
+                    <Route exact path="/">
                         <Characters /> 
                     </Route>
                     <Route exact path="/character/:id">

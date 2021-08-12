@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -37,23 +37,8 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         border: 0;
         outline: none;
-        font-size: 100%;
         vertical-align: baseline;
         background: transparent;
-    }
-`
-
-export const Button = styled.button`
-    margin: 8px 40px;
-    border: 1px solid transparent;
-    background-color: #0095f6;
-    color: #fff;
-    border-radius: 4px;
-    padding: 5px 9px;
-    cursor: pointer;
-    
-    &:disabled {
-        background-color: rgba(0,149,246,.3);
     }
 `
 
