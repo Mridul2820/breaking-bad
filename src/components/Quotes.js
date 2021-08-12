@@ -58,6 +58,10 @@ const Quote = styled.li`
     @media screen and (max-width: 500px) {
         font-size: 18px;
     }
+
+    @media screen and (max-width: 400px) {
+        margin-left: 20px;
+    }
 `
 
 export default Quotes

@@ -59,7 +59,6 @@ const Characters = () => {
                             setText(e.target.value)
                             setCurrentPage(1)
                         }}
-                        autoFocus
                     />
                 </Search>
             </Header>

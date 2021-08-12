@@ -21,6 +21,10 @@ const Wrap = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
+
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
 `
 
 const LogoWrap = styled(Link)`
@@ -34,7 +38,13 @@ const LogoWrap = styled(Link)`
     }
 `
 
-const Category = styled.div``
+const Category = styled.div`
+    @media screen and (max-width: 500px) {
+        margin-top: 30px;
+    }
+`
+
+
 const LinkItem = styled(Link)`
     background-color: rgb(72, 127, 90);
     color: #fff;
