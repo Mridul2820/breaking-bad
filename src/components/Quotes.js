@@ -16,8 +16,6 @@ const Quotes = ({ author }) => {
          // eslint-disable-next-line
     }, [])
 
-    console.log(quotes);
-
     return (
         <>
         {quotes?.length > 0 ? (
@@ -45,11 +43,19 @@ const Title = styled.h2`
     margin-bottom: 5px;
     text-align: center;
     border-bottom: 1px solid #999;
+
+    @media screen and (max-width: 500px) {
+        font-size: 21px;
+    }
 `
 
 const Quote = styled.h3`
     margin: 14px 0;
     font-size: 21px;
+
+    @media screen and (max-width: 500px) {
+        font-size: 18px;
+    }
 `
 
 export default Quotes

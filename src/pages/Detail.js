@@ -29,7 +29,7 @@ const Detail = () => {
                     <img src={detailData.img} alt="" />
                 </DetailImage>
                 <DetailData>
-                    <h2>Name : {detailData.name}</h2>
+                    <Name>Name : {detailData.name}</Name>
                     <DetailItem>
                         <span>Date of Birth : </span>
                         {detailData.birthday}
@@ -81,23 +81,43 @@ const Container = styled.div`
     margin: 0 auto;
     max-width: 1000px;
     color: #fff;
+
+    @media screen and (max-width: 400px) {
+        padding: 50px 20px;
+    }
 `
 
 const TopWrap = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+
+    @media screen and (max-width: 650px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const DetailImage = styled.div`
     width: 250px;
     margin-right: 30px;
 
+    @media screen and (max-width: 650px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
     img {
         width: 100%;
     }
 `
 const DetailData = styled.div``
+
+const Name = styled.h2`
+    @media screen and (max-width: 500px) {
+        font-size: 22px;
+    }
+`
 
 const DetailItem = styled.p`
     margin: 12px 0;
