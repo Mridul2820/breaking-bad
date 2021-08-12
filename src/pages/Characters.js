@@ -47,6 +47,7 @@ const Characters = () => {
     return (
         <Container>
             <Header>
+                <Title>Breaking Bad</Title>
                 <Search>
                     <input 
                         type="text" 
@@ -93,8 +94,14 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
-    padding: 30px;
+    padding: 20px 30px;
+`
+
+const Title = styled.h1`
+    color: #fff;
+    margin-bottom: 20px;
 `
 
 const Search = styled.form`
