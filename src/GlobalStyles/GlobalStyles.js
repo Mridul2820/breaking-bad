@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -43,6 +43,34 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         vertical-align: baseline;
         background: transparent;
+    }
+`
+
+export const Container = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px 40px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+`
+
+export const AllItem = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 500px) {
+        grid-template-columns: repeat(1, 1fr);
     }
 `
 

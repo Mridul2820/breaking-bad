@@ -21,12 +21,13 @@ const Quotes = ({ author }) => {
         {quotes?.length > 0 ? (
             <Container>
                 <Title>All quotes by {author} </Title>
-                {quotes?.map(quote => (
-                    <Quote key={quote.quote_id}>
-                        &ldquo; {quote.quote} &rdquo;
-                    </Quote>
-                ))}
-
+                <ul>
+                    {quotes?.map(quote => (
+                        <Quote key={quote.quote_id}>
+                            &ldquo; {quote.quote} &rdquo;
+                        </Quote>
+                    ))}
+                </ul>
             </Container>
         ) : ""}
         </>
@@ -49,9 +50,10 @@ const Title = styled.h2`
     }
 `
 
-const Quote = styled.h3`
+const Quote = styled.li`
     margin: 14px 0;
     font-size: 21px;
+    list-style: square;
 
     @media screen and (max-width: 500px) {
         font-size: 18px;

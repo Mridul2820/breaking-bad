@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ItemCard from '../components/ItemCard'
 import Loading from '../components/Loading'
 import Pagination from '../components/Pagination'
+import { AllItem, Container } from '../GlobalStyles/GlobalStyles'
 
 const Characters = () => {
     const [items, setItems] = useState([])
@@ -80,16 +81,6 @@ const Characters = () => {
     );
 }
 
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 20px 40px 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-`
-
 const Header = styled.div`
     display: flex;
     align-items: center;
@@ -121,24 +112,6 @@ const Search = styled.form`
         margin: auto;
         outline: none;
         width: 100%;
-    }
-`
-
-const AllItem = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-
-    @media screen and (max-width: 1000px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media screen and (max-width: 500px) {
-        grid-template-columns: repeat(1, 1fr);
     }
 `
 

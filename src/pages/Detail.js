@@ -100,18 +100,20 @@ const TopWrap = styled.div`
 
 const DetailImage = styled.div`
     width: 250px;
-    margin-right: 30px;
-
-    @media screen and (max-width: 650px) {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
 
     img {
         width: 100%;
     }
 `
-const DetailData = styled.div``
+
+const DetailData = styled.div`
+    margin-left: 30px;
+
+    @media screen and (max-width: 650px) {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+`
 
 const Name = styled.h2`
     @media screen and (max-width: 500px) {
