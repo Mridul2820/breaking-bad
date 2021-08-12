@@ -25,8 +25,6 @@ const Pagination = ({ currentPage, setCurrentPage, cardsPerPage, numOfPages, pag
         window.scroll(0, 0)
     }
 
-    console.log(currentPage);
-
     return (
         <Container>
             <ul>
@@ -35,7 +33,7 @@ const Pagination = ({ currentPage, setCurrentPage, cardsPerPage, numOfPages, pag
                         <AiOutlineLeft />
                     </Arrow>
                 }
-                {pageNumbers.map(number => (
+                {totalPages > 1 && pageNumbers.map(number => (
                     <Number
                         key={number}
                         onClick={() => pageChange(number)}

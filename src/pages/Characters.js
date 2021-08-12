@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ItemCard from '../components/ItemCard'
 import Pagination from '../components/Pagination'
-import { FaSearch } from 'react-icons/fa'
 
 const Characters = () => {
     const [items, setItems] = useState([])
@@ -23,44 +23,44 @@ const Characters = () => {
 
     useEffect(() => {
         const fetchItems = async () => {
-            const totalResult = await axios(`https://www.breakingbadapi.com/api/characters`)
+            const totalResult = await axios(`https://www.breakingbadapi.com/api/characters?name=${text}`)
             setNumOfPages(totalResult.data.length)
         }
 
         fetchItems()
-    }, [])
+    }, [text])
 
     useEffect(() => {
         const fetchItems = async () => {
-            const result = await axios(`https://www.breakingbadapi.com/api/characters?limit=${cardsPerPage}&offset=${indexOfFirstCard}`)
+            const result = await axios(`https://www.breakingbadapi.com/api/characters?limit=${cardsPerPage}&offset=${indexOfFirstCard}&name=${text}`)
 
             setItems(result.data)
         }
 
         fetchItems()
-    }, [indexOfFirstCard, cardsPerPage])
-
-    const handleSearch = (e) => {
-        e.preventDefault()
-
-        
-    }
+    }, [indexOfFirstCard, cardsPerPage, text])
 
     return (
         <Container>
-            <Search onSubmit={handleSearch}>
-                <input 
-                    type="text" 
-                    className="form-control"
-                    placeholder="Search characters"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    autoFocus
-                />
-                <button type="submit">
-                    <FaSearch size="20px" />
-                </button>
-            </Search>
+            <Header>
+                <Logo to="/">
+                    <img src="/assets/logo.png" alt="logo" />
+                </Logo>
+                <Search>
+                    <input 
+                        type="text" 
+                        className="form-control"
+                        placeholder="Search characters"
+                        value={text}
+                        onChange={(e) => {
+                            setText(e.target.value)
+                            setCurrentPage(1)
+                        }}
+                        autoFocus
+                    />
+                </Search>
+            </Header>
+
             <AllItem>
                 {items?.map(item => (
                     <ItemCard key={item.char_id} item={item} />
@@ -84,9 +84,45 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 40px 20px;
+    padding: 0 20px 40px 20px;
     margin: 0 auto;
     max-width: 1200px;
+`
+
+const Header = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+`
+
+const Logo = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+
+    img {
+        width: 100%;
+    }
+`
+
+const Search = styled.form`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    input {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        border: 0;
+        border-radius: 5px;
+        margin: auto;
+        outline: none;
+    }
 `
 
 const AllItem = styled.div`
@@ -106,32 +142,5 @@ const AllItem = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `
-
-const Search = styled.form`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-
-    input {
-        display: block;
-        padding: 10px;
-        font-size: 20px;
-        border: 0;
-        border-radius: 5px;
-        margin: auto;
-        outline: none;
-    }
-
-    button {
-        background: #487f5a;
-        color: #fff;
-        padding: 10px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
-`
-
 
 export default Characters
