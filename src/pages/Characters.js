@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ItemCard from '../components/ItemCard'
 import Loading from '../components/Loading'
@@ -48,9 +47,6 @@ const Characters = () => {
     return (
         <Container>
             <Header>
-                <Logo to="/">
-                    <img src="/assets/logo.png" alt="logo" />
-                </Logo>
                 <Search>
                     <input 
                         type="text" 
@@ -79,7 +75,6 @@ const Characters = () => {
 				numOfPages={numOfPages}
 				paginate={paginate} 
 			/>
-
         </Container>
     );
 }
@@ -102,22 +97,13 @@ const Header = styled.div`
     padding: 30px;
 `
 
-const Logo = styled(Link)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-
-    img {
-        width: 100%;
-    }
-`
-
 const Search = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
 
     input {
         display: block;
@@ -127,6 +113,7 @@ const Search = styled.form`
         border-radius: 5px;
         margin: auto;
         outline: none;
+        width: 100%;
     }
 `
 

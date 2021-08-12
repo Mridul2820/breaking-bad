@@ -3,12 +3,15 @@ import GlobalStyles from './GlobalStyles/GlobalStyles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Characters from './pages/Characters'
 import Detail from './pages/Detail'
+import Logo from './components/Logo'
 
 const App = () => {
     return (
-        <div>
+        <>
             <GlobalStyles />
+            
             <Router>
+                <Logo />
                 <Switch>
                     <Route exact path="/">
                         <Characters /> 
@@ -18,7 +21,7 @@ const App = () => {
                     </Route>
                 </Switch>
             </Router>
-        </div>
+        </>
     )
 }
 
