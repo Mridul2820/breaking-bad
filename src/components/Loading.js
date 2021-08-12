@@ -11,8 +11,8 @@ const Loading = () => {
 }
 
 const breatheAnimation = keyframes`
-	0% { opacity: .2; }
-	100% { opacity: 1; }
+	0%, 100% { opacity: .2; }
+	50% { opacity: 1; }
 `
 
 const Warp = styled.div`
@@ -28,10 +28,19 @@ const Warp = styled.div`
         width: 200px;
         margin-bottom: 30px;
         animation: ${breatheAnimation} 1s linear infinite;
+
+        @media screen and (max-width: 400px) {
+            width: 150px;
+        }
     }
 
     h1 {
         color: #fff;
+        animation: ${breatheAnimation} 1s linear infinite;
+
+        @media screen and (max-width: 400px) {
+            font-size: 24px;
+        }
     }
 `
 

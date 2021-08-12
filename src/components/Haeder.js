@@ -25,6 +25,10 @@ const Wrap = styled.div`
     @media screen and (max-width: 500px) {
         flex-direction: column;
     }
+
+    @media screen and (max-width: 400px) {
+        padding: 0 10px;
+    }
 `
 
 const LogoWrap = styled(Link)`
@@ -34,7 +38,7 @@ const LogoWrap = styled(Link)`
     margin-top: 20px;
 
     img {
-        width: 100px;
+        width: 80px;
     }
 `
 
@@ -51,6 +55,13 @@ const LinkItem = styled(Link)`
     margin: 0 8px;
     padding: 8px 16px;
     border-radius: 5px;
+
+    @media screen and (max-width: 400px) {
+        margin: 0 4px;
+        font-size: 14px;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
 `
 
 

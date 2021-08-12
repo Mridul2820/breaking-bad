@@ -38,6 +38,10 @@ const BetterCallSaul = () => {
 const Title = styled.h1`
     color: #fff;
     margin: 20px 0;
+
+    @media screen and (max-width: 400px) {
+        font-size: 24px;
+    }
 `
 
 export default BetterCallSaul

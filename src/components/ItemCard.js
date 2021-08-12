@@ -38,7 +38,7 @@ const ItemCard = ({ item }) => {
 }
 
 const CardWrap = styled(Link)`
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+    box-shadow: 2px 4px 10px rgba(72, 127, 90, .2);
     cursor: pointer;
     transition: all.5s;
     border-radius: 3px;
@@ -47,7 +47,7 @@ const CardWrap = styled(Link)`
     background: #fff;
 
     &:hover {
-        box-shadow: 2px 4px 10px rgba(0, 0, 0, .5);
+        box-shadow: 2px 4px 10px rgba(72, 127, 90, .5);
     }
 `
 

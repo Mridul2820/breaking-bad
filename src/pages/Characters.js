@@ -87,11 +87,19 @@ const Header = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 20px 30px;
+
+    @media screen and (max-width: 400px) {
+        padding: 20px 5px;
+    }
 `
 
 const Title = styled.h1`
     color: #fff;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 400px) {
+        font-size: 24px;
+    }
 `
 
 const Search = styled.form`
@@ -104,8 +112,8 @@ const Search = styled.form`
 
     input {
         display: block;
-        padding: 10px;
-        font-size: 20px;
+        padding: 8px 12px;
+        font-size: 18px;
         border: 0;
         border-radius: 5px;
         margin: auto;
