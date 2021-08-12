@@ -6,9 +6,11 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
     }
     body {
         background-color: #fafafa;
+        
     }
     
     a {
